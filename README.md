@@ -9,7 +9,7 @@
    <p align="center">
       Schematic Sketch to Circuit Diagram Using Deep Learning
      <br/>
-    <a href="github.com/aaanthonyyy"><strong>Interactive Demo Coming Soon »</strong></a>
+    <a href="https://colab.research.google.com/drive/1ox4m12Oa3GjwP47UdRArwCaUXbgUSLBf?authuser=2"><strong>Interactive Colab Demo »</strong></a>
   </p>
 
 </div>
