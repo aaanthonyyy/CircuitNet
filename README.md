@@ -50,7 +50,7 @@ To install CircuitNet, follow these steps:
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Project Overview
-> [!INFO] 
+> [!NOTE] 
 > The project is divided into 3 main components: component detection, component classification, and circuit generation. The following sections provide an overview of each component.
 <div align="center">
      <img src="https://user-images.githubusercontent.com/43044255/170146864-9e7f77e7-fd16-4c4e-9d26-26639a7e9c37.png" alt="Logo" width="600"/>
@@ -102,6 +102,7 @@ There are a variety of feature detection algorithms possible, but we opted for t
 
 The circuit generation pipeline transforms detected components into a complete circuit diagram through a three-stage process. First, the detected and classified components are processed to establish their spatial relationships and mapped to standardized circuit elements. Next, these processed components are used to automatically generate a JSON netlist that defines all component connections while preserving the original circuit topology. Finally, this netlist is rendered into an SVG circuit diagram using a rule-based placement system, which can then be exported to PNG format for easy visualization
 
+---
 
 #### Acknowledgements
 I would like to express my sincere gratitude to Dr. Akash Pooransingh, my project supervisor, for his invaluable guidance, expertise and encouragement throughout this research project. His insights into machine learning applications in electrical engineering and consistent support were instrumental in bringing this project to fruition.
