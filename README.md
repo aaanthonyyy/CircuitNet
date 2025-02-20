@@ -14,16 +14,79 @@
 
 </div>
 
+## Table of Contents
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+- [Project Structure](#project-structure)
+
+## Introduction
+CircuitNet aims to automate the conversion of hand-drawn circuit sketches into professional circuit diagrams using deep learning. The system combines traditional image processing for component detection with a CNN for classification, achieving 90% detection and 96.5% classification accuracy across 5 common circuit components. 
+
+## Installation
+To install CircuitNet, follow these steps:
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/aaanthonyyy/CircuitNet.git
+    cd CircuitNet
+    ```
+3. Activate the virtual environment:
+    ```bash
+    python -m venv circuitnet
+    source circuitnet/bin/activate
+    ```
+5. Install the dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
 ## Project Overview
+> [!INFO] 
+> The project is divided into 3 main components: component detection, component classification, and circuit generation. The following sections provide an overview of each component.
 <div align="center">
      <img src="https://user-images.githubusercontent.com/43044255/170146864-9e7f77e7-fd16-4c4e-9d26-26639a7e9c37.png" alt="Logo" width="600"/>
 </div>
-
-> A deep learning algorithm is proposed to automatically convert schematic sketches into circuit diagrams. The algorithm is promising, achieving a detection accuracy of 90% and a classification accuracy of 96.5%.
-
-<br/>
 <br/>
 
+### Dataset
+The dataset used in this project consists of 3,191 images (including augmented data). The original dataset was sourced from [mahmut-aksakalli/circuit_recognizer](https://github.com/mahmut-aksakalli/circuit_recognizer/blob/master/traindata.zip) and was further augmented to improve model performance.
+
+The dataset is located in the `dataset/` directory of this repository and includes:
+- Original circuit component images
+- Augmented variations of the original images
+- Additional handcrafted component images
+
+#### Extract the dataset:
+
+   ```bash
+   cd dataset/
+   tar -xzvf circuit_dataset.tar.gz
+   ```
+
+### Notebooks
+- **neural_network.ipynb**: This notebook is where the neural network is trained to predict the circuit components.
+- **object_detection.ipynb**: This notebook covers the image processing algorithm used to detect circuit components.
+- **circuit_generation.ipynb**: This notebook takes the detected and classified components to generate an SVG/PNG of the circuit.
+
+
+### Component Classification
+<div align="center">
+     <img src="https://user-images.githubusercontent.com/43044255/170149446-d57c13f0-3ab0-4542-86c9-8a7093d11627.png" alt="Logo" width="600"/>
+  <br/>
+  <br/>
+</div>
+The component classification model was trained using a Convolutional Neural Network (CNN) with 5 classes: resistor, capacitor, inductor, voltage source, and current source. The model achieved an accuracy of 96.5% on the test set.
+<br/>
+<br/>
 
 ### Component Segmentation
 <div align="center">
@@ -32,26 +95,13 @@
   <br/>
 </div>
 There are a variety of feature detection algorithms possible, but we opted for traditional image processing techniques due to the inavailability of labeled data. 
-
 <br/>
 <br/>
 
-### Classification Architecture
-<div align="center">
-     <img src="https://user-images.githubusercontent.com/43044255/170149446-d57c13f0-3ab0-4542-86c9-8a7093d11627.png" alt="Logo" width="600"/>
-  <br/>
-  <br/>
-</div>
+### Circuit Generation
+
+The circuit generation pipeline transforms detected components into a complete circuit diagram through a three-stage process. First, the detected and classified components are processed to establish their spatial relationships and mapped to standardized circuit elements. Next, these processed components are used to automatically generate a JSON netlist that defines all component connections while preserving the original circuit topology. Finally, this netlist is rendered into an SVG circuit diagram using a rule-based placement system, which can then be exported to PNG format for easy visualization
 
 
-### Software Dependancies
-This project was built using the following open-source libraries:
-
-*   [Numpy](https://www.numpy.org/) is an array manipulation library, used for linear algebra, Fourier transform, and random number capabilities.
-*   [CV2](https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_gui/py_image_display/py_image_display.html) is a library for computer vision tasks.
-*   [Skimage](https://scikit-image.org/) is a library which supports image processing applications on python.
-*   [Matplotlib](https://matplotlib.org/) is a library which generates figures and provides graphical user interface toolkit.
-*   [Tensorflow](https://www.tensorflow.org/) is an end-to-end open source machine learning platform
-*   [SVG Schematic](https://github.com/KenKundert/svg_schematic) is a library to build a schematic using Python to instantiate and place the symbols and wires
-*   [Cairo SVG](https://cairosvg.org/) is a library for processing SVG in python
-  
+#### Acknowledgements
+I would like to express my sincere gratitude to Dr. Akash Pooransingh, my project supervisor, for his invaluable guidance, expertise and encouragement throughout this research project. His insights into machine learning applications in electrical engineering and consistent support were instrumental in bringing this project to fruition.

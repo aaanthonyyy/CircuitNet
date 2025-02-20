@@ -1,0 +1,8 @@
+tensorflow
+numpy
+matplotlib
+pandas
+scikit-learn
+pathlib
+opencv-python
+visualkeras
